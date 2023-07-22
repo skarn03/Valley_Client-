@@ -1,0 +1,252 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+:root {
+    /* Color palette */
+    --primary-color: #6D5D6E;
+    /* Light Coral */
+    --secondary-color: #4D4D4D;
+    /* Coral */
+    --background-color: linear-gradient(to right, #6D5D6E, #FFBF9B);
+    /* Gradient from Light Coral to Peach */
+    --form-background-color: #FFEDDB;
+    /* Peach */
+    --text-color: #1E212D;
+    /* Dark Brown */
+    --input-background: #FFF4E0;
+    /* Light Salmon */
+    --button-background: #FFBF9B;
+    --button-text-color: #FFFDE8;
+    /* White */
+    --link-color: var(--secondary-color);
+    --link-hover-color: #d93920;
+    /* Slightly Darker Coral */
+
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+    color: var(--button-text-color);
+    padding: 12px 40px;
+    position: fixed;
+    width: 100%;
+    min-width: 100vw;
+    z-index: 1;
+}
+
+.navbar-brand {
+    font-family: Trebuchet MS, sans-serif;
+    font-weight: bold;
+    color: var(--button-text-color);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    padding: 5px;
+    padding-left: 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li:hover {
+    color: #30475E;
+    background-color: #E8E2DB;
+    border-radius: 20px;
+
+}
+
+.nav-item {
+    margin-left: 20px;
+    cursor: pointer;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-item i {
+    align-items: center;
+    justify-content: center;
+
+}
+
+.nav-item-profile {
+    width: 50px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 5px;
+}
+
+.profile .profile-image {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.profile .profile-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--form-background-color);
+    color: var(--text-color);
+    list-style: none;
+    padding: 10px 0;
+    margin: 5px 0 0;
+    border-radius: 3px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 2;
+}
+
+.profile.open .profile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.profile .profile-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile .profile-menu li:hover {
+    background-color: #E8E2DB;
+    color: #841818;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 5px;
+    background-color: var(--input-background);
+    border-radius: 20px;
+}
+
+.search-bar input[type="text"] {
+    font-family: Lucidatypewriter, monospace;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 0.91rem;
+    transition: width 0.3s, background-color 0.3s, color 0.3s;
+    width: 200px;
+    background-color: transparent;
+    color: #2B2B28;
+    text-align: center;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.search-bar input[type="text"]:focus {
+    font-family: Lucidatypewriter, monospace;
+    width: 250px;
+    background-color: #E6D5B8;
+    color: var(--text-color);
+}
+
+.search-bar button:hover {
+    color: #3D322C;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-20px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+.nav-item:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease;
+}
+
+/* Add a hover animation for the profile menu items */
+.profile-menu li:hover {
+    background-color: #f5f5f5;
+    transition: background-color 0.2s ease;
+}
+
+/* Add some styling for the tree icon in the navbar brand */
+.navbar-brand i {
+    margin-right: 5px;
+}
+
+/* Add the spin animation for the icon */
+.navbar-brand i:hover {
+    animation: spin 1s linear infinite;
+}
+
+/* Define the spin animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

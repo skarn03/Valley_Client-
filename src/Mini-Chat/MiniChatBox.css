@@ -1,0 +1,136 @@
+/* MiniChatBox.css */
+
+/* User */
+.mini-chat-user {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mini-chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.mini-chat-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Chat Box */
+.mini-chat-box {
+  height: 50%;
+  background-color: #F0EDD4;
+  border: 5px solid #00092C;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.mini-chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.headinput{
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+#other{
+  display: flex;
+  justify-content: flex-start;
+  padding: 4px;
+}
+#you{
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px;
+}
+#other span{
+  max-width: 200px;
+  object-fit: contain;
+  background-color: #EDC988;
+  border-radius: 8px;
+  padding: 5px;
+  word-break: break-word; /* Updated property */
+}
+#you span{
+  
+  max-width: 200px;
+  color: #000;
+  object-fit: contain;
+  background-color: #CBE2B0;
+  border-radius: 8px;
+  padding: 6px;
+  word-break: break-word; /* Updated property */
+  color: #353839;
+}
+.mini-chat-close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mini-chat-close i {
+  color: #333;
+}
+
+.mini-chat-close:hover i {
+  color: #ff5a5f;
+}
+
+.mini-chat-content {
+  min-width: 250px;
+  max-height: 325px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.mini-chat-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+.mini-chat-input {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.mini-chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border: 2px solid #00092C;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.mini-chat-send {
+  background-color: #4AA96C;
+  width: 50px;
+  height: 30px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mini-chat-send:hover {
+  background-color: #444444;
+}
+hr{
+  height: 3px;
+  color: #000;
+}
