@@ -26,17 +26,16 @@ function App() {
         <Route path="/friend" element={<Friend />} />
         <Route path="/Search/:name" element={<Search />} />
         <Route path="/profile/:uID" element={<UserProfile />} />
-        <Route path="/" element={<Feed />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/" element={<Feed />} />
         <Route path="/" element={<Messenger />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" replace/>} />
       </React.Fragment>
     );
   } else {
     routes = (
       <React.Fragment>
-        <Route path="/Login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/Login" replace />} />
+        <Route path="/" element={<Login />} />
       </React.Fragment>
     );
   }
@@ -74,8 +73,8 @@ function App() {
   } else {
     return (<AuthContext.Provider value={{ isLoggedIn: !!token, token: token, userID: userID, login: login, logout: logout }}>
       <Router>
-        <Suspense fallback={<div className="center"> 
-        LoadingSpinner
+        <Suspense fallback={
+        <div className="center">
         </div>}>
           <Routes>
             {routes}
