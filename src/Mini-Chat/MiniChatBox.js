@@ -17,9 +17,6 @@ const MiniChatBox = ({ user, onClose }) => {
     const handleInputChange = (event) => {
         setInputMessage(event.target.value);
     };
-    
-
-
     useEffect(() => {
         const socket = io(process.env.REACT_APP_BACKEND_SOCKET);
 
@@ -40,7 +37,7 @@ const MiniChatBox = ({ user, onClose }) => {
         const getConversation = async () => {
             try {
                 const response = await sendRequest(
-                    process.env.REACT_APP_BACKEND_URL+`/conversation/get/${user._id}`,
+                    process.env.REACT_APP_BACKEND_URL + `/conversation/get/${user._id}`,
                     'GET',
                     null,
                     {
@@ -60,7 +57,7 @@ const MiniChatBox = ({ user, onClose }) => {
             try {
                 if (convoID) {
                     const response = await sendRequest(
-                        process.env.REACT_APP_BACKEND_URL+`/message/get/${convoID}`,
+                        process.env.REACT_APP_BACKEND_URL + `/message/get/${convoID}`,
                         'GET',
                         null,
                         {
@@ -97,7 +94,7 @@ const MiniChatBox = ({ user, onClose }) => {
         if (socket) {
             socket.on('newMessageNotification', () => {
                 // Display a toast notification to the user
-                console.log("has sent you a new message") ;
+                console.log("has sent you a new message");
             });
         }
         // Cleanup the socket event listener
@@ -118,10 +115,10 @@ const MiniChatBox = ({ user, onClose }) => {
                         sender: auth.userID,
                         text: inputMessage
                     },
-                    recipientID:user._id,
+                    recipientID: user._id,
                 });
                 const response = await sendRequest(
-                    process.env.REACT_APP_BACKEND_URL+'/message/create',
+                    process.env.REACT_APP_BACKEND_URL + '/message/create',
                     'POST',
                     JSON.stringify({
                         conversationID: conversation._id,
@@ -135,7 +132,7 @@ const MiniChatBox = ({ user, onClose }) => {
                 );
 
                 // Emit the sendMessage event to the server
-           
+
 
                 // Clear the input message
                 setInputMessage('');
