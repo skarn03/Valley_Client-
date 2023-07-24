@@ -111,10 +111,11 @@
 /* Chat Content */
 .mini-chat-content {
   min-width: 250px;
-  max-height: calc(100% - 150px); /* Adjust the max height to fit the remaining space */
+  max-height: calc(100% - 100px); /* Adjust the max height to fit the remaining space */
   overflow-y: auto;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  padding-bottom: 50px; /* Add padding to create space for the chat input */
   position: relative; /* Add this line to make the position relative */
 }
 
@@ -127,9 +128,11 @@
   display: flex;
   align-items: center;
   position: absolute; /* Change position to absolute */
-  bottom: 70px; /* Adjust the distance from the bottom */
+  bottom: 20px; /* Adjust the distance from the bottom */
   left: 20px; /* Adjust the distance from the left */
   right: 20px; /* Adjust the distance from the right */
+  margin-bottom: 10px; /* Add margin-bottom to create space between chat content and input */
+  justify-content: space-between; /* Add this line to space items inside the input */
 }
 
 .mini-chat-input input {
