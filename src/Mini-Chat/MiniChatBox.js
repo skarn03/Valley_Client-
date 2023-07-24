@@ -18,7 +18,7 @@ const MiniChatBox = ({ user, onClose }) => {
         setInputMessage(event.target.value);
     };
     useEffect(() => {
-        const socket = io(process.env.REACT_APP_BACKEND_SOCKET);
+        const socket = io(process.env.REACT_APP_BACKEND_SOCKET || "http://localhost:5000");
 
         // Save the socket instance in state
         setSocket(socket);
@@ -107,7 +107,6 @@ const MiniChatBox = ({ user, onClose }) => {
 
     const handleSendMessage = async () => {
         if (inputMessage.trim() !== '') {
-            console.log(user);
             try {
                 socket.emit('sendMessage', {
                     roomID: conversation._id,
